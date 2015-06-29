@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2015 7:26:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.build.classes.hibernate.JatEventType" table="jat_event_type" catalog="jarvis_qa">
+        <id name="eventTypeCde" type="string">
+            <column name="EVENT_TYPE_CDE" length="2" />
+            <generator class="assigned" />
+        </id>
+        <property name="eventTypeDesc" type="string">
+            <column name="EVENT_TYPE_DESC" length="100" />
+        </property>
+        <property name="status" type="java.lang.Character">
+            <column name="STATUS" length="1" />
+        </property>
+        <set name="jatEventConfigs" table="jat_event_config" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EVENT_TYPE_CDE" length="2" />
+            </key>
+            <one-to-many class="com.build.classes.hibernate.JatEventConfig" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-schema="jarvis_qa" match-name=".*"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_event"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_event_config"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_event_host"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_event_type"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_logic"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_logic_definition"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_roles"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_transaction"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_userrole"/>
+  <table-filter match-catalog="jarvis_qa" match-name="jat_users"/>
+</hibernate-reverse-engineering>

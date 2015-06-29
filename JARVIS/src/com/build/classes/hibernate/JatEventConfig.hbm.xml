@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2015 7:26:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.build.classes.hibernate.JatEventConfig" table="jat_event_config" catalog="jarvis_qa">
+        <id name="eventConfigId" type="java.lang.Integer">
+            <column name="EVENT_CONFIG_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="jatEventHost" class="com.build.classes.hibernate.JatEventHost" fetch="select">
+            <column name="EVENT_HOST_ID" />
+        </many-to-one>
+        <many-to-one name="jatEventType" class="com.build.classes.hibernate.JatEventType" fetch="select">
+            <column name="EVENT_TYPE_CDE" length="2" />
+        </many-to-one>
+        <many-to-one name="jatEvent" class="com.build.classes.hibernate.JatEvent" fetch="select">
+            <column name="EVENT_ID" />
+        </many-to-one>
+        <property name="eventEmailId" type="string">
+            <column name="EVENT_EMAIL_ID" length="100" />
+        </property>
+        <property name="status" type="java.lang.Character">
+            <column name="STATUS" length="1" />
+        </property>
+        <property name="createdTimestamp" type="time">
+            <column name="CREATED_TIMESTAMP" length="8" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CREATED_BY" length="50" />
+        </property>
+        <property name="lastUpdatedTimestamp" type="time">
+            <column name="LAST_UPDATED_TIMESTAMP" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

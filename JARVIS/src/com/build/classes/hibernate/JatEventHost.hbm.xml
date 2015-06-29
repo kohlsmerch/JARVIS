@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2015 7:26:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.build.classes.hibernate.JatEventHost" table="jat_event_host" catalog="jarvis_qa">
+        <id name="eventHostId" type="int">
+            <column name="EVENT_HOST_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="eventHostName" type="string">
+            <column name="EVENT_HOST_NAME" length="50" />
+        </property>
+        <property name="eventHostOs" type="string">
+            <column name="EVENT_HOST_OS" length="100" />
+        </property>
+        <property name="eventHostOsVersion" type="string">
+            <column name="EVENT_HOST_OS_VERSION" length="50" />
+        </property>
+        <property name="eventModuleName" type="string">
+            <column name="EVENT_MODULE_NAME" length="50" />
+        </property>
+        <property name="eventModuleVersion" type="string">
+            <column name="EVENT_MODULE_VERSION" length="50" />
+        </property>
+        <set name="jatEventConfigs" table="jat_event_config" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EVENT_HOST_ID" />
+            </key>
+            <one-to-many class="com.build.classes.hibernate.JatEventConfig" />
+        </set>
+    </class>
+</hibernate-mapping>

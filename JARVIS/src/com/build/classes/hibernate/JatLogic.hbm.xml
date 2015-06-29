@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2015 7:26:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.build.classes.hibernate.JatLogic" table="jat_logic" catalog="jarvis_qa">
+        <id name="logicId" type="java.lang.Integer">
+            <column name="LOGIC_ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="jatEvent" class="com.build.classes.hibernate.JatEvent" fetch="select">
+            <column name="EVENT_ID" not-null="true" />
+        </many-to-one>
+        <property name="logicDesc" type="string">
+            <column name="LOGIC_DESC" length="50" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS" length="50" not-null="true" />
+        </property>
+        <property name="createdTimestamp" type="time">
+            <column name="CREATED_TIMESTAMP" length="8" not-null="true" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="CREATED_BY" length="50" not-null="true" />
+        </property>
+        <property name="lastUpdatedTimestamp" type="time">
+            <column name="LAST_UPDATED_TIMESTAMP" length="8" not-null="true" />
+        </property>
+        <set name="jatLogicDefinitions" table="jat_logic_definition" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOGIC_ID" />
+            </key>
+            <one-to-many class="com.build.classes.hibernate.JatLogicDefinition" />
+        </set>
+        <set name="jatTransactions" table="jat_transaction" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LOGIC_ID" />
+            </key>
+            <one-to-many class="com.build.classes.hibernate.JatTransaction" />
+        </set>
+    </class>
+</hibernate-mapping>

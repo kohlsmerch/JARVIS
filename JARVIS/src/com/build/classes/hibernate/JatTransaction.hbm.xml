@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2015 7:26:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.build.classes.hibernate.JatTransaction" table="jat_transaction" catalog="jarvis_qa">
+        <id name="tranId" type="int">
+            <column name="TRAN_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="jatLogic" class="com.build.classes.hibernate.JatLogic" fetch="select">
+            <column name="LOGIC_ID" />
+        </many-to-one>
+        <many-to-one name="jatEvent" class="com.build.classes.hibernate.JatEvent" fetch="select">
+            <column name="EVENT_ID" />
+        </many-to-one>
+        <property name="execStartTime" type="time">
+            <column name="EXEC_START_TIME" length="8" />
+        </property>
+        <property name="execStopTime" type="time">
+            <column name="EXEC_STOP_TIME" length="8" />
+        </property>
+        <property name="outcome" type="string">
+            <column name="OUTCOME" length="50" />
+        </property>
+        <property name="exceptionMessage" type="string">
+            <column name="EXCEPTION_MESSAGE" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>
